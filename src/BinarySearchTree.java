@@ -38,7 +38,7 @@ public class BinarySearchTree {
         if(root != null){
             inorderRec(root.getLeft());
             System.out.println(root.getKey());
-            inOrder(root.getRight());
+            inorderRec(root.getRight());
         }
     }
 

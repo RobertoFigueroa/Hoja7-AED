@@ -8,8 +8,15 @@
 
 public class Main {
 
+    public static void main(String[] args){
     //little dictionary
+    BinarySearchTree myTree =  new BinarySearchTree();
+    Association<String,String> objeto = new Association<>("dog","perro");
+    Association<String,String> objeto1 = new Association<>("star","estrella");
+    Association<String,String> objeto2 = new Association<>("door","puerta");
+    myTree.inOrder();
 
+    
 
-
+    }
 }
