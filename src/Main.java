@@ -8,23 +8,41 @@
 
 public class Main {
 
-    public static void main(String[] args){
-    //little dictionary
-    BinarySearchTree myTree =  new BinarySearchTree();
-    Association<String,String> objeto = new Association<>("dog","perro");
-    Association<String,String> objeto1 = new Association<>("star","estrella");
-    Association<String,String> objeto2 = new Association<>("door","puerta");
-        Association<String,String> objeto3 = new Association<>("chair","silla");
-        Association<String,String> objeto4 = new Association<>("car","carro");
-        Association<String,String> objeto5 = new Association<>("table","mesa");
-    myTree.insert(objeto);
-    myTree.insert(objeto1);
-        myTree.insert(objeto3);
-    myTree.insert(objeto2);
-        myTree.insert(objeto4);
-        myTree.insert(objeto5);
+    public static void main(String[] args) {
+        String textTest;
 
-    //System.out.println(myTree.search(myTree.getRoot(),"table").getValue());
-    System.out.println(myTree.inOrder("car"));
+        ArrayList<String> text = new ArrayList<String>();
+
+        try {
+            FileReader file = new FileReader("test.txt");
+            BufferedReader reader = new BufferedReader(file);
+            while ((textTest = reader.readLine()) != null) {
+                text.add(textTest);
+            }
+            reader.close();
+        } catch (Exception e) {
+            System.out.println("Archivo no encontrado");
+        }
+
+        for (int i = 0; i < text.size(); i++) {
+            text.set(i, text.get(i).trim());
+        }
+
+        for (int i = 0; i < text.size(); i++) {
+            System.out.println("-" + text.get(i) + "-");
+        }
+        System.out.println(text.size());
+
+        textTest = "";
+        for (int i = 0; i < text.size(); i++) {
+            textTest += text.get(i) + " ";
+        }
+        textTest.trim();
+        textTest = textTest.replaceAll("  *", " ");
+        String[] tokens = textTest.split(" ");
+        System.out.println(textTest);
+        for (String s : tokens) {
+            System.out.println(s);
+        }
     }
 }
