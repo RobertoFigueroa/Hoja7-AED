@@ -1,0 +1,5 @@
+(Woman,Mujer)
+(Town,Pueblo)
+(HomeWork,Tarea)
+(Asked,Pregunto)
+(About,Acerca)
