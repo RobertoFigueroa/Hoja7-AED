@@ -1,33 +1,36 @@
-public class Association<K,V> {
+public class Association<K, V> {
 
     private K key;
     private V value;
     private Association left;
     private Association right;
 
-    public Association(K key, V value){
+    public Association(K key, V value) {
         this.key = key;
         this.value = value;
     }
 
-    public K getKey(){
+    public K getKey() {
         return this.key;
     }
 
-    public V getValue(){
+    public V getValue() {
         return this.value;
     }
-    public void setLeft(Association leftItem){
+
+    public void setLeft(Association leftItem) {
         this.left = leftItem;
     }
 
-    public void setRight(Association rightItem){
+    public void setRight(Association rightItem) {
         this.right = rightItem;
     }
-    public Association getLeft(){
+
+    public Association getLeft() {
         return left;
     }
-    public Association getRight(){
+
+    public Association getRight() {
         return right;
     }
 }

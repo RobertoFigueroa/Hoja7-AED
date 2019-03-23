@@ -42,5 +42,13 @@ public class BinarySearchTree {
         }
     }
 
+    public Association search(Association root, String key){
+        if(root.getKey() == key){
+            return(root.getValue());
+        }else{
+            return(null)
+        }
+    }
+
 }
 
