@@ -1,7 +1,7 @@
 import java.text.Collator;
 import java.util.Locale;
 
-public class BinarySearchTree {
+public class BinarySearchTree{
 
     Association left;
     Association right;
@@ -17,7 +17,7 @@ public class BinarySearchTree {
     }
 
     public Association insertRec(Association root, Association item){
-        usCollator.setStrength(Collator.PRIMARY);
+        usCollator.setStrength(Collator.SECONDARY);
         if(root == null){
             root = new Association(item.getKey(),item.getValue());
             return root;
@@ -31,16 +31,58 @@ public class BinarySearchTree {
         return root;
     }
 
-    public void inOrder(){
-        inorderRec(root);
+    public String inOrder(String key){
+        return (String)inorderRec(root, key);
     }
-    public void inorderRec(Association root){
+   /* public void inorderRec(Association root){
         if(root != null){
             inorderRec(root.getLeft());
             System.out.println(root.getKey());
             inorderRec(root.getRight());
         }
+    }*/
+
+    public Object inorderRec(Association root,String key){
+        Object word = "";
+        if(root != null){
+            inorderRec(root.getLeft(),key);
+            if(root.getKey().equals(key)){
+                word = root.getValue();
+            }
+            inorderRec(root.getRight(),key);
+        }
+        else{
+            word = "*" + key + "*";
+        }
+        System.out.println(word);
+        return word;
     }
+
+
+
+    public Association search(Association root, String key){
+
+        if(root ==null || root.getKey().equals(key)) {
+            return root;
+        }
+        if (usCollator.compare(root.getKey(),key)>0){
+            System.out.print("hola");
+            return search(root.getRight(),key);
+        }
+
+
+        System.out.print("adios");
+        return search(root.getLeft(),key);
+
+    }
+
+
+    public Association getRoot(){
+        return this.root;
+    }
+
+
+
 
 }
 

@@ -8,6 +8,7 @@ public class Association<K,V> {
     public Association(K key, V value){
         this.key = key;
         this.value = value;
+        left = right = null;
     }
 
     public K getKey(){
